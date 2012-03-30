@@ -1,0 +1,2 @@
+Videojuicer Addon - Shared Components
+=====================================
