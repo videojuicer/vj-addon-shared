@@ -83,10 +83,10 @@ var configurator = {
         url = 'http://addon-configs-staging.s3.amazonaws.com/';
       }
 
-      url += player.presentation.seedName + '/' + 'uuid' + '/';
+      url += player.presentation.seedName + '/' + player.uuid + '/';
     }
 
-    return 'http://addon-configs.s3.amazonaws.com/myvideojuicer/ecommerce/' + name + '.json';
+    return url + name + '.json';
   },
 
   fetchDefaultData: function() {
@@ -111,5 +111,7 @@ var configurator = {
     return data;
   }
 };
+
+configurator.setUrl(player.get('endpoint') || null);
 
 module.exports = configurator;
