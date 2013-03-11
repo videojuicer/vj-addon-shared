@@ -78,9 +78,9 @@ var configurator = {
 
     if (url == undefined || url == null) {
       if (player.presentation.env == 'staging') {
-        url = 'http://addon-configs.s3.amazonaws.com/';
-      } else {
         url = 'http://addon-configs-staging.s3.amazonaws.com/';
+      } else {
+        url = 'http://addon-configs.s3.amazonaws.com/';
       }
 
       url += player.presentation.seedName + '/' + player.uuid + '/';
@@ -103,10 +103,13 @@ var configurator = {
   fetchPresentationData: function() {
     var response = net.http.getSync(this.getJSONUrlFor(player.presentation.id), { });
     var data = { };
+      player.log(JSON.stringify(response))
 
     if (response != null && response.status == 200) {
       data = JSON.parse(response.body);
     }
+
+    player.log(JSON.stringify(data))
 
     return data;
   }
