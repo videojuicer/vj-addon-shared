@@ -36,7 +36,11 @@ var configurator = {
       value = data[key];
     }
 
-    return (value || player.get(key) || defaultValue);
+    if (value == undefined || value == null) {
+      return (player.get(key) || defaultValue); 
+    }
+
+    return value;
   },
 
   getConfiguration: function() {
