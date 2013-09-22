@@ -107,6 +107,7 @@ var configurator = {
   fetchPresentationData: function() {
     var response = net.http.getSync(this.getJSONUrlFor(player.presentation.id), { });
     var data = { };
+      player.log("Config Data is :");
       player.log(JSON.stringify(response))
 
     if (response != null && response.status == 200) {
